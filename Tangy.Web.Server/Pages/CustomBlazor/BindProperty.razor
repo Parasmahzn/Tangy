@@ -42,6 +42,31 @@
     </div>
     <br />
 
+    <div class="row">
+
+        <h5> Product Summary </h5>
+
+        <table class="table table-striped">
+            <tbody>
+                @foreach (var item in Products)
+                {
+                    <tr>
+                        <td> <input type="text" @bind-value="item.Name" @bind-value:event="oninput" /> </td>
+                        <td> <input type="text" @bind-value="item.Price" @bind-value:event="oninput" /> </td>
+                        <td> <input type="checkbox" @bind-value="item.IsActive" checked="@(item.IsActive?"checked":null)" /> </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <hr />
+        <h5> Product Summary </h5>
+        @foreach (var item in Products)
+        {
+            <label>@(item.Name) [@(item.Price)] is @(item.IsActive? " Active":" Inactive")</label>
+        }
+
+    </div>
+
 </div>
 @code {
     private string selectProp = "";
